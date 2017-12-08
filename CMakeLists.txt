@@ -14,7 +14,7 @@ ament_environment_hooks("${ament_cmake_package_templates_ENVIRONMENT_HOOK_LIBRAR
 ament_package()
 ament_generate_environment()
 
-execute_process(COMMAND gcc -dumpmachine OUTPUT_VARIABLE MULTIARCH_TRIPLET)
+execute_process(COMMAND gcc -dumpmachine OUTPUT_VARIABLE MULTIARCH_TRIPLET OUTPUT_STRIP_TRAILING_WHITESPACE)
 configure_file(gnuinstalldirs_environment_hook_library_path.sh.in "${PROJECT_BINARY_DIR}/gnuinstalldirs_environment_hook_library_path.sh" @ONLY)
 install(FILES ${PROJECT_BINARY_DIR}/gnuinstalldirs_environment_hook_library_path.sh DESTINATION  "${CMAKE_INSTALL_PREFIX}/share/ros_workspace/environment" RENAME library_path.sh)
 
