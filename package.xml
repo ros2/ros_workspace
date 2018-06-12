@@ -10,6 +10,7 @@
   <license>Apache License 2.0</license>
 
   <build_depend>ament_cmake_core</build_depend>
+  <build_depend>ament_package</build_depend>
 
   <buildtool_depend>cmake</buildtool_depend>
 
