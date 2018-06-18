@@ -11,7 +11,7 @@ ament_environment_hooks("${ament_cmake_package_templates_ENVIRONMENT_HOOK_PYTHON
 
 # Collect machine architecture triplet for libraries using GNU install dirs.
 execute_process(COMMAND gcc -dumpmachine OUTPUT_VARIABLE MULTIARCH_TRIPLET OUTPUT_STRIP_TRAILING_WHITESPACE)
-ament_environment_hooks(gnuinstalldirs_library_path.sh.in)
+ament_environment_hooks(library_paths.sh.in)
 
 ament_package()
 ament_generate_environment()
