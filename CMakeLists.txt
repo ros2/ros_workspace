@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(ros_workspace)
+project(ros_workspace NONE)
 
 find_package(ament_cmake_core REQUIRED)
 
