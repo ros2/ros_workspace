@@ -13,8 +13,14 @@ set(BINARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/path.sh")
 set(LIBRARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/library_path.sh")
 set(PYTHONPATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/pythonpath.sh.in")
 
+set(COLCON_PREFIX_PATH_HOOK "env_hook/colcon_prefix_path.sh")
+
 # Set environment hooks for default environment.
-ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}")
+ament_environment_hooks(
+  "${BINARY_PATH_HOOK}"
+  "${COLCON_PREFIX_PATH_HOOK}"
+  "${LIBRARY_PATH_HOOK}"
+  "${PYTHONPATH_HOOK}")
 
 ament_package()
 ament_generate_environment()
