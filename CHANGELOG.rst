@@ -2,9 +2,10 @@
 Changelog for package ros_workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
-* add COLCON_PREFIX_PATH env var (`#11 <https://github.com/ros2/ros_workspace/issues/11>`_)
+
+0.6.1 (2019-02-07)
+------------------
+* Add COLCON_PREFIX_PATH env hook. (`#11 <https://github.com/ros2/ros_workspace/issues/11>`_)
 * Contributors: Dirk Thomas
 
 0.6.0 (2018-11-14)
