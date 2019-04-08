@@ -3,6 +3,11 @@ Changelog for package ros_workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+0.7.0 (2019-04-08)
+------------------
+* Add LICENSE file containing full Apache 2.0 license text. (`#13 <https://github.com/ros2/ros_workspace/issues/13>`_)
+* Contributors: Steven! Ragnarök
+
 0.6.1 (2019-02-07)
 ------------------
 * Add COLCON_PREFIX_PATH env hook. (`#11 <https://github.com/ros2/ros_workspace/issues/11>`_)
