@@ -3,6 +3,11 @@ Changelog for package ros_workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+0.7.1 (2019-04-29)
+------------------
+* Reverted adding the COLCON_PREFIX_PATH env var. (`#14 <https://github.com/ros2/ros_workspace/issues/14>`_)
+* Contributors: Dirk Thomas
+
 0.7.0 (2019-04-08)
 ------------------
 * Add LICENSE file containing full Apache 2.0 license text. (`#13 <https://github.com/ros2/ros_workspace/issues/13>`_)
