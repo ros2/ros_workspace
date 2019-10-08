@@ -28,6 +28,11 @@ set(BINARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/path.sh")
 set(LIBRARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/library_path.sh")
 set(PYTHONPATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/pythonpath.sh.in")
 
+# register information for .dsv generation
+set(
+  AMENT_CMAKE_ENVIRONMENT_HOOKS_DESC_pythonpath
+  "prepend-non-duplicate;PYTHONPATH;${PYTHON_INSTALL_DIR}")
+
 # Set environment hooks for default environment.
 ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}")
 
