@@ -3,6 +3,12 @@ Changelog for package ros_workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+0.8.0 (2019-10-11)
+------------------
+* Added .dsv file generation for PYTHONPATH. (`#16 <https://github.com/ros2/ros_workspace/issues/16>`_)
+* Added support for ament_package installed with setup.py develop. (`#15 <https://github.com/ros2/ros_workspace/issues/15>`_)
+* Contributors: Dirk Thomas
+
 0.7.1 (2019-04-29)
 ------------------
 * Reverted adding the COLCON_PREFIX_PATH env var. (`#14 <https://github.com/ros2/ros_workspace/issues/14>`_)
