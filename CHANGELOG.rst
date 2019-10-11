@@ -2,6 +2,10 @@
 Changelog for package ros_workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.7.2 (2019-10-11)
+------------------
+* Added support for ament_package installed with setup.py develop. (`#15 <https://github.com/ros2/ros_workspace/issues/15>`_)
+* Contributors: Dirk Thomas
 
 0.7.1 (2019-04-29)
 ------------------
