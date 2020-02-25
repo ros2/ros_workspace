@@ -31,7 +31,6 @@ if(NOT EXISTS "${AMENT_PACKAGE_DIR}")
 endif()
 set(AMENT_PACKAGE_TEMPLATE_DIR "${AMENT_PACKAGE_DIR}/template")
 set(BINARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/path.${SHELL_EXT}")
-set(LIBRARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/library_path.${SHELL_EXT}")
 set(PYTHONPATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/pythonpath.${SHELL_EXT}.in")
 
 # register information for .dsv generation
@@ -43,6 +42,7 @@ set(
 if(WIN32)
   ament_environment_hooks("${BINARY_PATH_HOOK}" "${PYTHONPATH_HOOK}")
 else()
+  set(LIBRARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/library_path.${SHELL_EXT}")
   ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}")
 endif()
 
