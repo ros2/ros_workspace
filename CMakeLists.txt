@@ -43,7 +43,9 @@ if(WIN32)
   ament_environment_hooks("${BINARY_PATH_HOOK}" "${PYTHONPATH_HOOK}")
 else()
   set(LIBRARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/library_path.${SHELL_EXT}")
-  ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}")
+  # Collect machine architecture triplet for libraries using GNU install dirs
+  execute_process(COMMAND gcc -dumpmachine OUTPUT_VARIABLE MULTIARCH_TRIPLET OUTPUT_STRIP_TRAILING_WHITESPACE)
+  ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}" "env_hook/multiarch_library_paths.sh.in")
 endif()
 
 ament_package()
