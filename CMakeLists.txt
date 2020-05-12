@@ -53,7 +53,7 @@ else()
   endif()
   set(
     AMENT_CMAKE_ENVIRONMENT_HOOKS_DESC_multiarch_library_paths
-    "prepend-non-duplicate;${LIBRARY_PATH_ENV_VAR};${MULTIARCH_TRIPLET}")
+    "prepend-non-duplicate;${LIBRARY_PATH_ENV_VAR};lib/${MULTIARCH_TRIPLET}")
   ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}" "env-hooks/multiarch_library_paths.sh.in")
 endif()
 
