@@ -3,6 +3,12 @@ Changelog for package ros_workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+1.0.0 (2020-05-12)
+------------------
+* Extend library path to have multiarch directory (`#18 <https://github.com/ros2/ros_workspace/issues/18>`_)
+* Enable Windows build. (`#17 <https://github.com/ros2/ros_workspace/issues/17>`_)
+* Contributors: Jacob Perron, Sean Yen
+
 0.8.0 (2019-10-11)
 ------------------
 * Added .dsv file generation for PYTHONPATH. (`#16 <https://github.com/ros2/ros_workspace/issues/16>`_)
