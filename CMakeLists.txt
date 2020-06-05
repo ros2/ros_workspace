@@ -57,6 +57,11 @@ else()
   ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}" "env-hooks/multiarch_library_paths.sh.in")
 endif()
 
+# skip using ament_index/resource_index/parent_prefix_path
+# if for Debian packages it is known that there are no underlays
+# note the template only checks for an empty (use) / non-empty (skip) string
+set(SKIP_PARENT_PREFIX_PATH "SKIP_PARENT_PREFIX_PATH")
+
 ament_package()
 ament_generate_environment()
 
