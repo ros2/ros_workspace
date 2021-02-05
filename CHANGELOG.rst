@@ -2,6 +2,11 @@
 Changelog for package ros_workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.2 (2021-02-04)
+------------------
+* Use GNUInstallDirs to determine multiarch library dir (`#20 <https://github.com/ros2/ros_workspace/issues/20>`_)
+* Contributors: Scott K Logan
+
 1.0.1 (2020-06-05)
 ------------------
 * set flag to skip parent_prefix_path (`#19 <https://github.com/ros2/ros_workspace/issues/19>`_)
