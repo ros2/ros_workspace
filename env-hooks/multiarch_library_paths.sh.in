@@ -1,1 +1,1 @@
-ament_prepend_unique_value "@LIBRARY_PATH_ENV_VAR@" "$AMENT_CURRENT_PREFIX/lib/@MULTIARCH_TRIPLET@"
+ament_prepend_unique_value "@LIBRARY_PATH_ENV_VAR@" "$AMENT_CURRENT_PREFIX/@CMAKE_INSTALL_LIBDIR@"

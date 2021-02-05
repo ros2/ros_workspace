@@ -43,18 +43,23 @@ if(WIN32)
   ament_environment_hooks("${BINARY_PATH_HOOK}" "${PYTHONPATH_HOOK}")
 else()
   set(LIBRARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/library_path.${SHELL_EXT}")
-  # Collect machine architecture triplet for libraries using GNU install dirs
-  execute_process(COMMAND gcc -dumpmachine OUTPUT_VARIABLE MULTIARCH_TRIPLET OUTPUT_STRIP_TRAILING_WHITESPACE)
-  # register multiarch information for .dsv generation
-  if(APPLE)
-    set(LIBRARY_PATH_ENV_VAR "DYLD_LIBRARY_PATH")
-  else()
-    set(LIBRARY_PATH_ENV_VAR "LD_LIBRARY_PATH")
+  # enable C language so that a trycompile can determine what the
+  # anticipated libdir will be.
+  enable_language(C)
+  include(GNUInstallDirs)
+  if(NOT ${CMAKE_INSTALL_LIBDIR} STREQUAL "lib")
+    # register multiarch information for .dsv generation
+    if(APPLE)
+      set(LIBRARY_PATH_ENV_VAR "DYLD_LIBRARY_PATH")
+    else()
+      set(LIBRARY_PATH_ENV_VAR "LD_LIBRARY_PATH")
+    endif()
+    set(
+      AMENT_CMAKE_ENVIRONMENT_HOOKS_DESC_multiarch_library_paths
+      "prepend-non-duplicate;${LIBRARY_PATH_ENV_VAR};${CMAKE_INSTALL_LIBDIR}")
+    set(MULTIARCH_LIBRARY_PATH_HOOK "env-hooks/multiarch_library_paths.sh.in")
   endif()
-  set(
-    AMENT_CMAKE_ENVIRONMENT_HOOKS_DESC_multiarch_library_paths
-    "prepend-non-duplicate;${LIBRARY_PATH_ENV_VAR};lib/${MULTIARCH_TRIPLET}")
-  ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}" "env-hooks/multiarch_library_paths.sh.in")
+  ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}" ${MULTIARCH_LIBRARY_PATH_HOOK})
 endif()
 
 # skip using ament_index/resource_index/parent_prefix_path
