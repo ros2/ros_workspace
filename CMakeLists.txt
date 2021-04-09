@@ -59,7 +59,11 @@ else()
       "prepend-non-duplicate;${LIBRARY_PATH_ENV_VAR};${CMAKE_INSTALL_LIBDIR}")
     set(MULTIARCH_LIBRARY_PATH_HOOK "env-hooks/multiarch_library_paths.sh.in")
   endif()
-  ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}" ${MULTIARCH_LIBRARY_PATH_HOOK})
+  set(
+    AMENT_CMAKE_ENVIRONMENT_HOOKS_DESC_ros_package_path
+    "prepend-non-duplicate;ROS_PACKAGE_PATH;${CMAKE_INSTALL_DATAROOTDIR}")
+  set(ROS_PACKAGE_PATH_HOOK "env-hooks/ros_package_path.sh.in")
+  ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}" ${MULTIARCH_LIBRARY_PATH_HOOK} "${ROS_PACKAGE_PATH_HOOK}")
 endif()
 
 # skip using ament_index/resource_index/parent_prefix_path
