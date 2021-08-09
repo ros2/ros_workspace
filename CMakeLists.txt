@@ -62,11 +62,44 @@ else()
   ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}" ${MULTIARCH_LIBRARY_PATH_HOOK})
 endif()
 
-# skip using ament_index/resource_index/parent_prefix_path
-# if for Debian packages it is known that there are no underlays
-# note the template only checks for an empty (use) / non-empty (skip) string
-set(SKIP_PARENT_PREFIX_PATH "SKIP_PARENT_PREFIX_PATH")
-
 ament_package()
-ament_generate_environment()
 
+# make the path to the Python interpreter found at configure time available as a default
+find_package(Python3 REQUIRED COMPONENTS Interpreter)
+get_executable_path(ros_workspace_PYTHON_EXECUTABLE Python3::Interpreter CONFIGURE)
+
+set(workspace_setup_files
+  "local_setup.bash"
+  "local_setup.bat.in"
+  "local_setup.sh.in"
+  "_local_setup_util.py"
+  "local_setup.zsh"
+  "setup.bash"
+  "setup.bat.in"
+  "setup.sh.in"
+  "setup.zsh")
+
+# configure and install setup files
+foreach(file ${workspace_setup_files})
+  # check if the file is a template
+  string_ends_with("${file}" ".in" is_template)
+  if(is_template)
+    # cut of .in extension
+    string(LENGTH "${file}" length)
+    math(EXPR offset "${length} - 3")
+    string(SUBSTRING "${file}" 0 ${offset} name)
+    # expand template
+    get_filename_component(name "${name}" NAME)
+    configure_file(
+      "${file}"
+      "${CMAKE_BINARY_DIR}/ros_workspace_scripts/${name}"
+      @ONLY
+    )
+    set(file "${CMAKE_BINARY_DIR}/ros_workspace_scripts/${name}")
+  endif()
+
+  install(
+    FILES "${file}"
+    DESTINATION "${CMAKE_INSTALL_PREFIX}"
+  )
+endforeach()
