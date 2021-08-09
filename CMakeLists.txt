@@ -64,6 +64,10 @@ endif()
 
 ament_package()
 
+# make the path to the Python interpreter found at configure time available as a default
+find_package(Python3 REQUIRED COMPONENTS Interpreter)
+get_executable_path(ros_workspace_PYTHON_EXECUTABLE Python3::Interpreter CONFIGURE)
+
 set(workspace_setup_files
   "local_setup.bash"
   "local_setup.bat.in"
