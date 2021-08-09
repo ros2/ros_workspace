@@ -69,8 +69,19 @@ set(SKIP_PARENT_PREFIX_PATH "SKIP_PARENT_PREFIX_PATH")
 
 ament_package()
 
+set(workspace_setup_files
+  "local_setup.bash"
+  "local_setup.bat.in"
+  "local_setup.sh.in"
+  "_local_setup_util.py"
+  "local_setup.zsh"
+  "setup.bash"
+  "setup.bat.in"
+  "setup.sh.in"
+  "setup.zsh")
+
 # configure and install setup files
-foreach(file ${ament_cmake_package_templates_PREFIX_LEVEL})
+foreach(file ${workspace_setup_files})
   # check if the file is a template
   string_ends_with("${file}" ".in" is_template)
   if(is_template)
@@ -82,10 +93,10 @@ foreach(file ${ament_cmake_package_templates_PREFIX_LEVEL})
     get_filename_component(name "${name}" NAME)
     configure_file(
       "${file}"
-      "${CMAKE_BINARY_DIR}/ament_cmake_environment/${name}"
+      "${CMAKE_BINARY_DIR}/ros_workspace_scripts/${name}"
       @ONLY
     )
-    set(file "${CMAKE_BINARY_DIR}/ament_cmake_environment/${name}")
+    set(file "${CMAKE_BINARY_DIR}/ros_workspace_scripts/${name}")
   endif()
 
   install(
