@@ -1,4 +1,4 @@
-# generated from ament_package/template/prefix_level/setup.sh.in
+# generated from ros_workspace/templates/setup.sh.in
 
 # since this file is sourced use either the provided AMENT_CURRENT_PREFIX
 # or fall back to the destination set at configure time

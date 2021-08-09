@@ -1,4 +1,4 @@
-:: generated from ament_package/template/prefix_level/setup.bat.in
+:: generated from ros_workspace/templates/setup.bat.in
 @echo off
 
 :: get the directory of this file without trailing backslash

@@ -1,4 +1,4 @@
-# copied from ament_package/template/prefix_level/setup.bash
+# copied from ros_workspace/templates/setup.bash
 
 AMENT_SHELL=bash
 

@@ -1,4 +1,4 @@
-# generated from ament_package/template/prefix_level/local_setup.sh.in
+# generated from ros_workspace/templates/local_setup.sh.in
 
 # since a plain shell script can't determine its own path when being sourced
 # either use the provided AMENT_CURRENT_PREFIX

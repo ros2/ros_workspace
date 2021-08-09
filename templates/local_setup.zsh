@@ -1,4 +1,4 @@
-# copied from ament_package/template/prefix_level/local_setup.zsh
+# copied from ros_workspace/templates/local_setup.zsh
 
 AMENT_SHELL=zsh
 
