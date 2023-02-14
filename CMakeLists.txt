@@ -39,8 +39,7 @@ set(
 
 # Set environment hooks for default environment.
 if(WIN32)
-  set(BINARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/path.${SHELL_EXT}")
-  ament_environment_hooks("${BINARY_PATH_HOOK}" "${PYTHONPATH_HOOK}")
+  ament_environment_hooks("${PYTHONPATH_HOOK}")
 else()
   set(LIBRARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/library_path.${SHELL_EXT}")
   # enable C language so that a trycompile can determine what the
