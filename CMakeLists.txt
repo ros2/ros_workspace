@@ -14,7 +14,7 @@ else()
   set(PYTHON_INSTALL_DIR "lib/python${PYTHON_MAJOR_MINOR}/site-packages")
   set(SHELL_EXT "sh")
 endif()
-set(AMENT_PACKAGE_DIR "${CMAKE_INSTALL_PREFIX}/${PYTHON_INSTALL_DIR}/ament_package")
+set(AMENT_PACKAGE_DIR "${CMAKE_PREFIX_PATH}/${PYTHON_INSTALL_DIR}/ament_package")
 if(NOT EXISTS "${AMENT_PACKAGE_DIR}")
   # Check for an .egg-link file and use the listed directory if it exists
   get_filename_component(AMENT_PACKAGE_EGG_LINK "${AMENT_PACKAGE_DIR}" DIRECTORY)
