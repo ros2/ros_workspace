@@ -30,7 +30,6 @@ if(NOT EXISTS "${AMENT_PACKAGE_DIR}")
   endif()
 endif()
 set(AMENT_PACKAGE_TEMPLATE_DIR "${AMENT_PACKAGE_DIR}/template")
-set(BINARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/path.${SHELL_EXT}")
 set(PYTHONPATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/pythonpath.${SHELL_EXT}.in")
 
 # register information for .dsv generation
@@ -40,7 +39,7 @@ set(
 
 # Set environment hooks for default environment.
 if(WIN32)
-  ament_environment_hooks("${BINARY_PATH_HOOK}" "${PYTHONPATH_HOOK}")
+  ament_environment_hooks("${PYTHONPATH_HOOK}")
 else()
   set(LIBRARY_PATH_HOOK "${AMENT_PACKAGE_TEMPLATE_DIR}/environment_hook/library_path.${SHELL_EXT}")
   # enable C language so that a trycompile can determine what the
@@ -59,7 +58,7 @@ else()
       "prepend-non-duplicate;${LIBRARY_PATH_ENV_VAR};${CMAKE_INSTALL_LIBDIR}")
     set(MULTIARCH_LIBRARY_PATH_HOOK "env-hooks/multiarch_library_paths.sh.in")
   endif()
-  ament_environment_hooks("${BINARY_PATH_HOOK}" "${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}" ${MULTIARCH_LIBRARY_PATH_HOOK})
+  ament_environment_hooks("${LIBRARY_PATH_HOOK}" "${PYTHONPATH_HOOK}" ${MULTIARCH_LIBRARY_PATH_HOOK})
 endif()
 
 # skip using ament_index/resource_index/parent_prefix_path
@@ -69,4 +68,3 @@ set(SKIP_PARENT_PREFIX_PATH "SKIP_PARENT_PREFIX_PATH")
 
 ament_package()
 ament_generate_environment()
-

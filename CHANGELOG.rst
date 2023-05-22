@@ -2,6 +2,12 @@
 Changelog for package ros_workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.3 (2023-02-15)
+------------------
+* Remove path hook generation from ament_environment (`#28 <https://github.com/ros2/ros_workspace/issues/28>`_)
+* [latest] Update maintainers - 2022-11-07 (`#26 <https://github.com/ros2/ros_workspace/issues/26>`_)
+* Contributors: Audrow Nash, Michael Carroll
+
 1.0.2 (2021-02-04)
 ------------------
 * Use GNUInstallDirs to determine multiarch library dir (`#20 <https://github.com/ros2/ros_workspace/issues/20>`_)
